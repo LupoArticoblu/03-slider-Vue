@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- creiamo uno slider-->
+      <h1 class="title">{{movies.title}}</h1>
+      <div class="container">
+        <!--se sono sopra la card autoslider si ferma-->
+        <div class="card" @mouseenter="mouseOver" @mouseleave="mouseOut">
+          <img :src="movies.images[activeImg]" alt="movies.title">
+          
+          <div class="thumbs">
+            <img v-for="(image, index) in movies.images" :src="image" alt="" 
+            :class="{ 'active' : activeImg === index}" @click="changeImg(index)">
+
+          </div>
+
+          <div class="nav">
+            <div class="prev" @click="nextPrev(false)">
+              <i><<</i>
+            </div>
+
+            <div class="next" @click="nextPrev(true)">
+              <i>>></i>
+            </div>
+          </div>
+
+          <div class="info">
+            <h5 class="title">{{movies.title}}</h5>
+            <small class="length">{{movies.length}}</small>
+            <p class="desc">{{movies.desc}}</p>
+        </div>
+      </div>
+  </div>
+  <script src="slider.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
