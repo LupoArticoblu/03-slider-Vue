@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/vue@3"></script>
-  <title>Document</title>
+  <title>Ciak</title>
 </head>
 <body>
   
@@ -14,7 +14,10 @@
       <h1 class="title">{{movies.title}}</h1>
       <div class="container">
         <!--se sono sopra la card autoslider si ferma-->
-        <div class="card" @mouseenter="mouseOver" @mouseleave="mouseOut">
+        <div class="card" 
+        @mouseenter="mouseOver" 
+        @mouseleave="mouseOut"
+        @click="nexus = !nexus">
           <img :src="movies.images[activeImg]" alt="movies.title">
           
           <div class="thumbs">

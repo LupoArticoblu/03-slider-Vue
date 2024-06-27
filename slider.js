@@ -18,7 +18,8 @@ createApp({
         desc: 'ciak ciak ciak',
       },
       activeImg: 0,
-      intervalloSlider: null
+      intervalloSlider: null,
+      nexus: true
     }
   },
   methods:{
@@ -44,9 +45,9 @@ createApp({
     },
     // creiamo un autoslider
     autoSlider(){
-      //questo equivale a const intervalloSlider = setInterval(()=>{}, 3000) ma const è definita in data
+      //questo equivale a const intervalloSlider = setInterval(()=>{}, 3000) ma const è definita in data ATTENZIONE: questa variabile può essere anche non definita in data e rimanere comunque una variabile globale grazie a this
       this.intervalloSlider = setInterval(()=>{
-        this.nextPrev(true);
+        this.nextPrev(this.nexus);
       }, 3000)
     },
     fermaSlider(){
